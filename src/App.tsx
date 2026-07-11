@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import '@/App.css';
 import type { IProject, Itask } from '@/interface/index.ts';
 import { getProjectsByUserId, getTodosByUserId } from '@/api/index.ts';
+import { Link } from 'react-router-dom';
 
 function App() {
 
@@ -24,10 +25,6 @@ function App() {
     setTasksInProgress(data['in-progress']);
   }
 
-
-
-
-
   useEffect(() => {
     fetchProjects();
   }, []);
@@ -39,11 +36,7 @@ function App() {
 
 
   return (
-
     <div>
-
-
-
       <select value={selectedProject} onChange={(e) => setSelectedProject(e.target.value)}>
         <option value="">Select a project</option>
         {projects.map((task, index) => (
@@ -64,6 +57,7 @@ function App() {
           <p>Description: {task.discription}</p>
           <p>Project ID: {task.projectId}</p>
           <p>Created At: {task.createAt}</p>
+          <Link to={`taskDetails/${task.todoId}`}>View</Link>
         </div>
       ))}
 
@@ -76,6 +70,7 @@ function App() {
           <p>Description: {task.discription}</p>
           <p>Project ID: {task.projectId}</p>
           <p>Created At: {task.createAt}</p>
+          <Link to={`taskDetails/${task.todoId}`}>View</Link>
         </div>
       ))}
 
@@ -88,6 +83,7 @@ function App() {
           <p>Description: {task.discription}</p>
           <p>Project ID: {task.projectId}</p>
           <p>Created At: {task.createAt}</p>
+          <Link to={`taskDetails/${task.todoId}`}>View</Link>
         </div>
       ))}
 
