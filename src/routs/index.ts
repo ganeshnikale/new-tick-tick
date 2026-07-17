@@ -6,6 +6,7 @@ import TaskDetails from "@/pages/taks/taskDetails";
 import {
     createBrowserRouter,
 } from "react-router";
+import Pomodoro from "@/pages/pomodoro/pomodoro";
 
 let router = createBrowserRouter([
     {
@@ -20,6 +21,10 @@ let router = createBrowserRouter([
             {
                 path: "/taskDetails/:taskId",
                 Component: TaskDetails,
+            },
+            {
+                path:"pomodoro",
+                Component: Pomodoro
             }
 
         ]

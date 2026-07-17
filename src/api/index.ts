@@ -28,3 +28,18 @@ export const getTodosByUserId = async (uid:string) => {
 };
 
 
+export const getAllTaksByUserId = async (uid:string) => {
+  const q = query(collection(db, "todos"), where("userId", "==", uid));
+
+  const querySnapshot = await getDocs(q);
+  let sortedTasks: { [key: string]: Itask[] } = {};
+   querySnapshot.forEach((doc) => {
+
+     sortedTasks[doc.data().status] = sortedTasks[doc.data().status] || [];
+     sortedTasks[doc.data().status].push(doc.data() as Itask);
+  });
+console.log(sortedTasks);
+  return sortedTasks;
+  
+};
+

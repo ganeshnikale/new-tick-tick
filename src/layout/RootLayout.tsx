@@ -6,6 +6,7 @@ export default function RootLayout() {
       <nav>
         <Link to="/">Home</Link>
         <Link to="/addProject/">Add Project</Link>
+        <Link to="/Pomodoro/">Pomodoro</Link>
         {/* <Link to="/taskDetails/">Task Details</Link> */}
       </nav>
       <Outlet/>
